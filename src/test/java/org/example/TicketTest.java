@@ -9,14 +9,14 @@ public class TicketTest {
     TicketRepository repo = new TicketRepository();
     TicketManager manager = new TicketManager(repo);
 
-    Ticket ticket1 = new Ticket(1,350, "MOW","LED", 2);
+    Ticket ticket1 = new Ticket(1,350, "MOW","LED", 3);
     Ticket ticket2 = new Ticket(2,200, "GOJ","KUF", 4);
     Ticket ticket3 = new Ticket(3,400, "LED","OGZ", 5);
     Ticket ticket4 = new Ticket(4,600, "FRU","MOW", 8);
     Ticket ticket5 = new Ticket(5,100, "OGZ","GOJ", 1);
     Ticket ticket6 = new Ticket(6,100, "MOW","LED", 2);
     Ticket ticket7 = new Ticket(7,200, "GOJ","KUF", 4);
-    Ticket ticket8 = new Ticket(8,600, "LED","OGZ", 5);
+    Ticket ticket8 = new Ticket(8,600, "LED","OGZ", 6);
 
     @Test
     public void shouldAdd1() {
@@ -90,7 +90,7 @@ public class TicketTest {
         String from = "MOW";
         String to = "LED";
         Ticket[] expected = {ticket6, ticket1};
-        Ticket[] actual = manager.findAll(from,to);
+        Ticket[] actual = manager.findAll(from,to, Ticket::compareTo);
         Assertions.assertArrayEquals(expected,actual);
     }
     @Test
@@ -105,7 +105,7 @@ public class TicketTest {
         String from = "GOJ";
         String to = "KUF";
         Ticket[] expected = {ticket2, ticket7};
-        Ticket[] actual = manager.findAll(from,to);
+        Ticket[] actual = manager.findAll(from,to, Ticket::compareTo);
         Assertions.assertArrayEquals(expected,actual);
     }
     @Test
@@ -121,7 +121,7 @@ public class TicketTest {
         String from = "LED";
         String to = "OGZ";
         Ticket[] expected = {ticket3, ticket8};
-        Ticket[] actual = manager.findAll(from,to);
+        Ticket[] actual = manager.findAll(from,to, Ticket::compareTo);
         Assertions.assertArrayEquals(expected,actual);
     }
 }

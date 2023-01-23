@@ -5,7 +5,11 @@ public class Ticket implements Comparable<Ticket> {
     private int price;
     private String from;
     private String to;
+
     private int time;
+    public int getTime() {
+        return time;
+    }
 
     public int getId() {
         return id;
