@@ -124,4 +124,32 @@ public class TicketTest {
         Ticket[] actual = manager.findAll(from,to);
         Assertions.assertArrayEquals(expected,actual);
     }
+    @Test
+    public void shouldFind4() {
+        repo.addTicket(ticket1);
+        repo.addTicket(ticket2);
+        repo.addTicket(ticket3);
+        repo.addTicket(ticket4);
+        repo.addTicket(ticket5);
+        repo.addTicket(ticket6);
+        String from = "OGZ";
+        String to = "GOJ";
+        Ticket[] expected = {ticket5};
+        Ticket[] actual = manager.findAll(from,to);
+        Assertions.assertArrayEquals(expected,actual);
+    }
+    @Test
+    public void shouldFind5() {
+        repo.addTicket(ticket1);
+        repo.addTicket(ticket2);
+        repo.addTicket(ticket3);
+        repo.addTicket(ticket4);
+        repo.addTicket(ticket5);
+        repo.addTicket(ticket6);
+        String from = "PTA";
+        String to = "TRE";
+        Ticket[] expected = {};
+        Ticket[] actual = manager.findAll(from,to);
+        Assertions.assertArrayEquals(expected,actual);
+    }
 }

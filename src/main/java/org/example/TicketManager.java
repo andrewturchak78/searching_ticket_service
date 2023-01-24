@@ -22,9 +22,9 @@ public class TicketManager {
                 }
                 tmp[result.length] = ticket;
                 result = tmp;
-                Arrays.sort(result);
             }
         }
+        Arrays.sort(result);
         return result;
     }
 }
